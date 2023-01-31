@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.summersrest.androidgenerator.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.summersrest.androidgenerator.MyBundle
 
 class MyApplicationService {
 
