@@ -4,6 +4,28 @@
     <name>Android Generator</name>
     <vendor>SummersRest</vendor>
 
+    <description><![CDATA[
+    <h2>Android代码生成插件，支持生成简单的Activity，Fragment代码，MVP模式的Activity，Fragment代码，摆脱重复劳动</h2>
+    <ul>
+        <li>Activity: Folder-> New -> Activity -> MvpActivity</li>
+        <li>Fragment: Folder-> New -> Fragment -> MvpFragment</li>
+        <li>GitHub：<a href="https://github.com/summersrest/AndroidGenerator</a></li>
+    </ul>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h1>0.0.2</h1>
+    <ul>
+        <li>Merge the generators of the Activity and normal Activity</li>
+        <li>Merge the generators of the Fragment and normal Fragment</li>
+    </ul>
+    <h1>0.0.1</h1>
+    <ul>
+        <li>You can generate android code with this plugin</li>
+        <li>You can generate normal Activity/Fragment code and MVP Activity/Fragment code</li>
+    </ul>
+    ]]></change-notes>
+
     <depends>org.jetbrains.android</depends>
     <depends>org.jetbrains.kotlin</depends>
     <depends>com.intellij.modules.java</depends>
@@ -22,4 +44,5 @@
     <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
         <wizardTemplateProvider implementation="generator.PluginGeneratorProvider" />
     </extensions>
+
 </idea-plugin>
