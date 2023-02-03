@@ -7,13 +7,19 @@
     <description><![CDATA[
     <h2>Android代码生成插件，支持生成简单的Activity，Fragment代码，MVP模式的Activity，Fragment代码，摆脱重复劳动</h2>
     <ul>
-        <li>Activity: Folder-> New -> Activity -> MvpActivity</li>
-        <li>Fragment: Folder-> New -> Fragment -> MvpFragment</li>
+        <li>Activity: Folder-> New -> Activity -> Mvp Activity</li>
+        <li>Activity: Folder-> New -> Activity -> Refresh Activity</li>
+        <li>Fragment: Folder-> New -> Fragment -> Mvp Fragment</li>
+        <li>Fragment: Folder-> New -> Fragment -> Refresh Fragment</li>
         <li>GitHub：<a href="https://github.com/summersrest/AndroidGenerator</a></li>
     </ul>
     ]]></description>
 
     <change-notes><![CDATA[
+    <h1>0.0.3</h1>
+    <ul>
+        <li>Added the generators of the Activity/Fragment that can be refresh</li>
+    </ul>
     <h1>0.0.2</h1>
     <ul>
         <li>Merge the generators of the Activity and normal Activity</li>

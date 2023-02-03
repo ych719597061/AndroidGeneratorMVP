@@ -1,6 +1,6 @@
 package generator.mvp.simple_fragment.template.kotlin
 
-import generator.util.DateUtils
+import generator.util.*
 
 /**
  * @author  LiuJiang
@@ -12,13 +12,13 @@ fun mvpFragView(
     viewName: String,
     desc: String
 ) = """
-    package ${packageName}.view
+    package ${packageName}.${VIEW_PATH}
 
     import ${applicationPackage}.base.mvp.BaseView
 
     /**
      * @author  LiuJiang
-     * created  at: ${DateUtils.time()}
+     * created  at: ${time()}
      * Desc:    $desc
      */
     interface $viewName: BaseView {

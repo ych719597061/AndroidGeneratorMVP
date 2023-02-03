@@ -13,8 +13,7 @@ fun mvpLayoutTemp(
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".application.pages.MainActivity">
+        android:layout_height="match_parent">
 
         <com.sum.titlebar.TitleBar
             android:id="@+id/title_bar"

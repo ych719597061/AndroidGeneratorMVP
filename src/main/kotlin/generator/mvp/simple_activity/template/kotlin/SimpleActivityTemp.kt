@@ -1,6 +1,6 @@
 package generator.mvp.simple_activity.template.kotlin
 
-import generator.util.DateUtils
+import generator.util.*
 
 
 /**
@@ -13,7 +13,7 @@ fun simpleActivityTemp(
     activityClass: String,
     desc: String
 ) = """
-package ${packageName}.activity
+package ${packageName}.${ACTIVITY_PATH}
 
 import android.os.Bundle
 import ${applicationPackage}.base.activity.BaseActivity
@@ -21,7 +21,7 @@ import ${applicationPackage}.databinding.Activity${activityClass}Binding
 
 /**
  * @author  LiuJiang
- * created  at: ${DateUtils.time()}
+ * created  at: ${time()}
  * Desc:    $desc
  */
 class ${activityClass}Activity: BaseActivity<Activity${activityClass}Binding>() {

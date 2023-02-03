@@ -1,12 +1,12 @@
-package generator.mvp.simple_activity.template.kotlin
+package generator.mvp.refresh_activity.template.kotlin
 
 import generator.util.*
 
 /**
  * @author  LiuJiang
- * Desc:    mvp view 模板
+ * Desc:
  */
-fun mvpViewTemp(
+fun refreshViewTemp (
     applicationPackage: String?,
     packageName: String,
     viewName: String,
@@ -14,14 +14,14 @@ fun mvpViewTemp(
 ) = """
     package ${packageName}.${VIEW_PATH}
 
-    import ${applicationPackage}.base.mvp.BaseView
+    import ${applicationPackage}.base.mvp.BaseRefreshView
 
     /**
      * @author  LiuJiang
      * created  at: ${time()}
      * Desc:    $desc
      */
-    interface $viewName : BaseView {
-    
+    interface $viewName : BaseRefreshView {
+
     }
 """.trimIndent()

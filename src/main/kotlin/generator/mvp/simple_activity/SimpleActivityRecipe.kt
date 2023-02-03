@@ -5,6 +5,7 @@ import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
 import generator.mvp.simple_activity.template.kotlin.*
+import generator.util.*
 
 /**
  * @author  LiuJiang
@@ -31,7 +32,7 @@ fun RecipeExecutor.simpleActivityRecipe(
     generateManifest(
         moduleData = moduleData,
         activityClass = "${activityClass}Activity",
-        packageName = packageName.replace(projectData.applicationPackage!!, "") + ".activity",
+        packageName = packageName.replace(projectData.applicationPackage!!, "") + ".${ACTIVITY_PATH}",
         isLauncher = false,
         hasNoActionBar = false,
         isNewModule = false,
@@ -41,18 +42,18 @@ fun RecipeExecutor.simpleActivityRecipe(
     if (language == Language.Kotlin) {
         if (isMvp) {
             //生成activity
-            save(mvpActivityTemp(projectData.applicationPackage, packageName, activityClass, presenterName, viewName, desc), srcOut.resolve("activity/${activityClass}Activity.${ktOrJavaExt}"))
+            save(mvpActivityTemp(projectData.applicationPackage, packageName, activityClass, presenterName, viewName, desc), srcOut.resolve("${ACTIVITY_PATH}/${activityClass}Activity.${ktOrJavaExt}"))
             //生成presenter
-            save(mvpPresenterTemp(projectData.applicationPackage, packageName, presenterName, modelName, viewName, desc), srcOut.resolve("presenter/${presenterName}.${ktOrJavaExt}"))
+            save(mvpPresenterTemp(projectData.applicationPackage, packageName, presenterName, modelName, viewName, desc), srcOut.resolve("${PRESENTER_PATH}/${presenterName}.${ktOrJavaExt}"))
             //生成model
-            save(mvpModelTemp(projectData.applicationPackage, packageName, modelName, desc), srcOut.resolve("model/${modelName}.${ktOrJavaExt}"))
+            save(mvpModelTemp(projectData.applicationPackage, packageName, modelName, desc), srcOut.resolve("${MODEL_PATH}/${modelName}.${ktOrJavaExt}"))
             //生成view
-            save(mvpViewTemp(projectData.applicationPackage, packageName, viewName, desc), srcOut.resolve("view/${viewName}.${ktOrJavaExt}"))
+            save(mvpViewTemp(projectData.applicationPackage, packageName, viewName, desc), srcOut.resolve("${VIEW_PATH}/${viewName}.${ktOrJavaExt}"))
             //生成layout
             save(mvpLayoutTemp(desc), resOut.resolve("layout/${layoutName}.xml"))
         } else {
             //生成activity
-            save(simpleActivityTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("activity/${activityClass}Activity.${ktOrJavaExt}"))
+            save(simpleActivityTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("${ACTIVITY_PATH}/${activityClass}Activity.${ktOrJavaExt}"))
             //生成layout
             save(simpleLayoutTemp(desc), resOut.resolve("layout/${layoutName}.xml"))
         }

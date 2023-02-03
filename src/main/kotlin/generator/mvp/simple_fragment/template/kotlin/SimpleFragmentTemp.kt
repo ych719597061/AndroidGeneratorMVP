@@ -1,6 +1,6 @@
 package generator.mvp.simple_fragment.template.kotlin
 
-import generator.util.DateUtils
+import generator.util.*
 
 /**
  * @author  LiuJiang
@@ -13,14 +13,14 @@ fun simpleFragmentTemp(
     fragmentClass: String,
     desc: String
 ) = """
-    package ${packageName}.fragment
+    package ${packageName}.${FRAGMENT_PATH}
 
     import ${applicationPackage}.base.activity.BaseFragment
     import ${applicationPackage}.databinding.Fragment${fragmentClass}Binding
 
     /**
      * @author  LiuJiang
-     * created  at: ${DateUtils.time()}
+     * created  at: ${time()}
      * Desc:    $desc
      */
     class ${fragmentClass}Fragment : BaseFragment<Fragment${fragmentClass}Binding>() {

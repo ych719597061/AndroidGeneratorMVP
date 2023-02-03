@@ -1,6 +1,6 @@
 package generator.mvp.simple_activity.template.kotlin
 
-import generator.util.DateUtils
+import generator.util.*
 
 /**
  * @author  LiuJiang
@@ -12,14 +12,14 @@ fun mvpModelTemp (
     modelName: String,
     desc: String
 ) = """
-    package ${packageName}.model
+    package ${packageName}.${MODEL_PATH}
 
     import android.content.Context
     import ${applicationPackage}.base.mvp.BaseModel
 
     /**
      * @author  LiuJiang
-     * created  at: ${DateUtils.time()}
+     * created  at: ${time()}
      * Desc:    $desc
      */
     class ${modelName}(context: Context?) : BaseModel(context) {

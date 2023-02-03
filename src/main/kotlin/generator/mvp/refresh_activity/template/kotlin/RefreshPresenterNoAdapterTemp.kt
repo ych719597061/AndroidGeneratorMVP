@@ -1,12 +1,13 @@
-package generator.mvp.simple_activity.template.kotlin
+package generator.mvp.refresh_activity.template.kotlin
 
 import generator.util.*
+import generator.util.time
 
 /**
  * @author  LiuJiang
- * Desc:    mvp presenter 模板
+ * Desc:
  */
-fun mvpPresenterTemp(
+fun refreshPresenterNoAdapterTemp (
     applicationPackage: String?,
     packageName: String,
     presenterName: String,
@@ -29,6 +30,8 @@ fun mvpPresenterTemp(
     class ${presenterName}(listener: ${viewName}, context: Context?) : BasePresenter<${modelName}, ${viewName}>(listener, context) {
         override fun createModel() = ${modelName}(context)
 
-        
+        var page = 1;
+
+
     }
 """.trimIndent()

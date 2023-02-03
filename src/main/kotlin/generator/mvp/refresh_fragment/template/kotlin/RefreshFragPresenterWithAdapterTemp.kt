@@ -1,19 +1,20 @@
-package generator.mvp.simple_fragment.template.kotlin
+package generator.mvp.refresh_fragment.template.kotlin
 
 import generator.util.*
-
+import generator.util.time
 
 /**
  * @author  LiuJiang
- * Desc:    mvp presenter fragment 模板
+ * Desc:
  */
-fun mvpFragPresenterTemp(
+fun refreshFragPresenterWithAdapterTemp (
     applicationPackage: String?,
     packageName: String,
     presenterName: String,
     modelName: String,
     viewName: String,
-    desc: String
+    desc: String,
+    beanName: String,
 ) = """
     package ${packageName}.${PRESENTER_PATH}
 
@@ -21,6 +22,7 @@ fun mvpFragPresenterTemp(
     import ${packageName}.${MODEL_PATH}.$modelName
     import ${packageName}.${VIEW_PATH}.$viewName
     import ${applicationPackage}.base.mvp.BasePresenter
+    import ${applicationPackage}.$APP_PATH.$BEAN_PATH.$beanName
 
     /**
      * @author  LiuJiang
@@ -29,6 +31,10 @@ fun mvpFragPresenterTemp(
      */
     class ${presenterName}(listener: ${viewName}, fragment: Fragment?): BasePresenter<${modelName}, ${viewName}>(listener, fragment) {
         override fun createModel() = ${modelName}(fragment)
+
+        var page = 1;
+        var data = mutableListOf<$beanName>()
+
 
     }
 """.trimIndent()

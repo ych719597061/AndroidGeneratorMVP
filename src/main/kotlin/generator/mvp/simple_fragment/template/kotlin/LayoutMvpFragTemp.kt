@@ -11,8 +11,7 @@ fun mvpLayoutFragTemp () = """
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".application.pages.MainActivity">
+        android:layout_height="match_parent">
 
         <com.sum.multiple.MultipleStatusView
             android:id="@+id/mu_view"

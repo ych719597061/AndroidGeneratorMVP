@@ -1,4 +1,4 @@
-package generator.mvp.simple_fragment.template.kotlin
+package generator.mvp.refresh_fragment.template.kotlin
 
 import generator.util.MODEL_PATH
 import generator.util.time
@@ -8,7 +8,7 @@ import generator.util.time
  * @author  LiuJiang
  * Desc:    Mvp model Fragment 模板
  */
-fun mvpFragModel (
+fun refreshFragModelTemp (
     applicationPackage: String?,
     packageName: String,
     modelName: String,
