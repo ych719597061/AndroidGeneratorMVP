@@ -13,6 +13,7 @@ val simpleFragmentGenerator
         name = "Mvp Fragment"
         description = "生成MVP框架的Fragment和layout"
         minApi = MIN_API
+
         category = Category.Fragment
         formFactor = FormFactor.Mobile
         screens = listOf(WizardUiContext.ActivityGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
