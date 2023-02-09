@@ -8,6 +8,8 @@
 - Fragment: Folder-> New -> Fragment -> Refresh Fragment
 
 GitHub：[https://github.com/summersrest/AndroidGenerator](https://github.com/summersrest/AndroidGenerator)
+
+实现流程：[https://blog.csdn.net/summersrest/article/details/128866210](https://blog.csdn.net/summersrest/article/details/128866210)
 <!-- Plugin description end -->
 
 ## Installation
