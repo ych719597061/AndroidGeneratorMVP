@@ -53,7 +53,7 @@ fun RecipeExecutor.simpleActivityRecipe(
             save(mvpLayoutTemp(desc), resOut.resolve("layout/${layoutName}.xml"))
         } else {
             //生成activity
-            save(simpleActivityTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("${ACTIVITY_PATH}/${activityClass}Activity.${ktOrJavaExt}"))
+            save(simpleActivityTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("${activityClass}Activity.${ktOrJavaExt}"))
             //生成layout
             save(simpleLayoutTemp(desc), resOut.resolve("layout/${layoutName}.xml"))
         }

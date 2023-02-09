@@ -13,7 +13,7 @@ fun simpleActivityTemp(
     activityClass: String,
     desc: String
 ) = """
-package ${packageName}.${ACTIVITY_PATH}
+package $packageName
 
 import android.os.Bundle
 import ${applicationPackage}.base.activity.BaseActivity

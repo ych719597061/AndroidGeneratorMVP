@@ -40,7 +40,7 @@ fun RecipeExecutor.simpleFragmentRecipe(
             save(mvpLayoutFragTemp(), resOut.resolve("layout/${layoutName}.xml"))
         } else {
             //生成Fragment
-            save(simpleFragmentTemp(projectData.applicationPackage, packageName, fragmentClass, desc), srcOut.resolve("${FRAGMENT_PATH}/${fragmentClass}Fragment.${ktOrJavaExt}"))
+            save(simpleFragmentTemp(projectData.applicationPackage, packageName, fragmentClass, desc), srcOut.resolve("${fragmentClass}Fragment.${ktOrJavaExt}"))
             //生成layout
             save(simpleLayoutFragTemp(), resOut.resolve("layout/${layoutName}.xml"))
         }

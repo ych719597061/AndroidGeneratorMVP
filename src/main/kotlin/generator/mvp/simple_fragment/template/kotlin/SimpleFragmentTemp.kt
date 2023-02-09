@@ -13,7 +13,7 @@ fun simpleFragmentTemp(
     fragmentClass: String,
     desc: String
 ) = """
-    package ${packageName}.${FRAGMENT_PATH}
+    package $packageName
 
     import ${applicationPackage}.base.activity.BaseFragment
     import ${applicationPackage}.databinding.Fragment${fragmentClass}Binding
