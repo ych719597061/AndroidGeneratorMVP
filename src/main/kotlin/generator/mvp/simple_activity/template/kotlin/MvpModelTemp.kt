@@ -12,17 +12,13 @@ fun mvpModelTemp (
     modelName: String,
     desc: String
 ) = """
-    package ${packageName}.${MODEL_PATH}
-
-    import android.content.Context
-    import ${applicationPackage}.base.mvp.BaseModel
-
-    /**
-     * @author  LiuJiang
-     * created  at: ${time()}
-     * Desc:    $desc
-     */
-    class ${modelName}(context: Context?) : BaseModel(context) {
-
-    }
+ package ${packageName};
+ import ${applicationPackage}.base.BasicModel;
+ /**
+  * created  at: ${time()}
+  * Desc:    $desc
+  */
+public class ${modelName}Model extends BasicModel {
+     
+}
 """.trimIndent()

@@ -7,21 +7,50 @@ import generator.util.*
  * Desc:    mvp view 模板
  */
 fun mvpViewTemp(
-    applicationPackage: String?,
-    packageName: String,
-    viewName: String,
-    desc: String
+        applicationPackage: String?,
+        packageName: String,
+        viewName: String,
+        layoutName: String,
+        desc: String
 ) = """
-    package ${packageName}.${VIEW_PATH}
-
-    import ${applicationPackage}.base.mvp.BaseView
-
+package ${packageName};
+import android.content.Context;
+import android.view.Display;
+import ${applicationPackage}.R;
+import ${applicationPackage}.base.MvpPresentation;
     /**
-     * @author  LiuJiang
      * created  at: ${time()}
      * Desc:    $desc
      */
-    interface $viewName : BaseView {
-    
+public class ${viewName}View extends MvpPresentation<${viewName}Presenter> implements I${viewName}View {
+
+    public ${viewName}View(Context context, Display display) {
+        super(context, display);
     }
+
+    @Override
+    protected int layoutId() {
+        return R.layout.${layoutName};
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    public void dobusiness() {
+
+    }
+
+    @Override
+    public void onFail(String reason) {
+
+    }
+
+    @Override
+    public ${viewName}Presenter createPresenter() {
+        return new ${viewName}Presenter(this);
+    }
+}
 """.trimIndent()

@@ -10,26 +10,24 @@ import generator.util.defaultPackageNameParameter
  */
 val simpleActivityGenerator
     get() = template {
-        name = "Mvp Activity"
-        description = "生成MVP框架的Activity和layout"
+        name = "Mvp Presentation 生成器"
+        description = "生成MVP框架的Presentation和layout"
         minApi = MIN_API
-
         category = Category.Activity
         formFactor = FormFactor.Mobile
         screens = listOf(WizardUiContext.ActivityGallery, WizardUiContext.MenuEntry, WizardUiContext.NewProject, WizardUiContext.NewModule)
-
-        // Activity
+        // View
         val activityClass = stringParameter {
-            name = "Activity Name"
-            default = "Xxx"
-            help = "只输入名字，不要包含Activity"
+            name = "View Name"
+            default = "SimpleView"
+            help = "只输入名字，不要包含View"
             constraints = listOf(Constraint.NONEMPTY)
         }
 
         // layout
         val layoutName = stringParameter {
             name = "Layout Name"
-            default = "activity_xxx"
+            default = "activity_simple"
             help = "请输入布局的名字"
             constraints = listOf(Constraint.LAYOUT, Constraint.UNIQUE, Constraint.NONEMPTY)
             suggest = { "activity_${camelCaseToUnderlines(activityClass.value)}" }
@@ -50,68 +48,65 @@ val simpleActivityGenerator
             default = true
         }
 
-        //model
-        val modelName = stringParameter {
-            name = "Model Name"
-            default = "XxxModel"
-            help = "请输入model的名字"
-            constraints = listOf(Constraint.NONEMPTY)
-            suggest = { "${activityClass.value}Model" }
-            visible = { isMvp.value }
-        }
-
-        //view
-        val viewName = stringParameter {
-            name = "View Name"
-            default = "XxxView"
-            help = "请输入view的名字"
-            constraints = listOf(Constraint.NONEMPTY)
-            suggest = { "${activityClass.value}View" }
-            visible = { isMvp.value }
-        }
-
-        //presenter
-        val presenterName = stringParameter {
-            name = "Presenter Name"
-            default = "XxxPresenter"
-            help = "请输入presenter的名字"
-            constraints = listOf(Constraint.NONEMPTY)
-            suggest = { "${activityClass.value}Presenter" }
-            visible = { isMvp.value }
-        }
-
+//        //model
+//        val modelName = stringParameter {
+//            name = "Model Name"
+//            default = "SimpleModel"
+//            help = "请输入model的名字"
+//            constraints = listOf(Constraint.NONEMPTY)
+//            suggest = { "${activityClass.value}Model" }
+//            visible = { isMvp.value }
+//        }
+//
+//        //view
+//        val viewName = stringParameter {
+//            name = "View Name"
+//            default = "SimpleView"
+//            help = "请输入view的名字"
+//            constraints = listOf(Constraint.NONEMPTY)
+//            suggest = { "${activityClass.value}View" }
+//            visible = { isMvp.value }
+//        }
+//
+//        //presenter
+//        val presenterName = stringParameter {
+//            name = "Presenter Name"
+//            default = "SimplePresenter"
+//            help = "请输入Presenter的名字"
+//            constraints = listOf(Constraint.NONEMPTY)
+//            suggest = { "${activityClass.value}Presenter" }
+//            visible = { isMvp.value }
+//        }
         val packageName = defaultPackageNameParameter
-
         val language = enumParameter<Language> {
             name = "Source Language"
             help = "请选择语言"
-            default = Language.Kotlin
+            default = Language.Java
         }
-
         widgets(
-            TextFieldWidget(activityClass),
-            TextFieldWidget(desc),
-            TextFieldWidget(layoutName),
-            CheckBoxWidget(isMvp),
-            TextFieldWidget(modelName),
-            TextFieldWidget(viewName),
-            TextFieldWidget(presenterName),
-            PackageNameWidget(packageName),
-            EnumWidget(language),
+                TextFieldWidget(activityClass),
+                TextFieldWidget(desc),
+                TextFieldWidget(layoutName),
+                CheckBoxWidget(isMvp),
+//                TextFieldWidget(modelName),
+//                TextFieldWidget(viewName),
+//                TextFieldWidget(presenterName),
+                PackageNameWidget(packageName),
+                EnumWidget(language),
         )
 
         recipe = {
             simpleActivityRecipe(
-                it as ModuleTemplateData,
-                packageName.value,
-                activityClass.value,
-                layoutName.value,
-                desc.value,
-                isMvp.value,
-                modelName.value,
-                viewName.value,
-                presenterName.value,
-                language.value,
+                    it as ModuleTemplateData,
+                    packageName.value,
+                    activityClass.value,
+                    layoutName.value,
+                    desc.value,
+                    isMvp.value,
+//                    modelName.value,
+//                    viewName.value,
+//                    presenterName.value,
+                    language.value,
             )
         }
     }

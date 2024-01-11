@@ -34,3 +34,4 @@ const val FRAGMENT_PATH = "fragment"
  * Bean目录名称
  */
 const val BEAN_PATH = "pojo"
+
