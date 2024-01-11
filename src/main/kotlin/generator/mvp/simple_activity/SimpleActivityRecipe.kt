@@ -21,7 +21,8 @@ fun RecipeExecutor.simpleActivityRecipe(
 //        modelName: String,
 //        viewName: String,
 //        presenterName: String,
-        language: Language
+        language: Language,
+        isCreateDir: Boolean,
 ) {
     val (projectData, srcOut, resOut) = moduleData
     val ktOrJavaExt = language.extension
@@ -43,22 +44,36 @@ fun RecipeExecutor.simpleActivityRecipe(
 
 
     } else if (language == Language.Java) {
-        if (isMvp) {
+
+        var dirnam = "";
+        var packageName2=packageName;
+
+        if (isCreateDir) {
+            dirnam = "" + activityClass + "/";
+            packageName2=packageName+"."+activityClass;
+        }
+
+        var defPackgeName=projectData.applicationPackage;
+        if (defPackgeName==null){
+            defPackgeName=packageName;
+        }
+
+        if (true) {
             //生成param 参数文件
-            save(mvpParamTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("${activityClass}Param.${ktOrJavaExt}"))
+            save(mvpParamTemp(defPackgeName, packageName2, activityClass, desc), srcOut.resolve("${dirnam}${activityClass}Param.${ktOrJavaExt}"))
             //生成interface文件
-            save(mvpInterfaceTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("I${activityClass}View.${ktOrJavaExt}"))
+            save(mvpInterfaceTemp(defPackgeName, packageName2, activityClass, desc), srcOut.resolve("${dirnam}I${activityClass}View.${ktOrJavaExt}"))
             //生成presenter
-            save(mvpPresenterTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("${activityClass}Presenter.${ktOrJavaExt}"))
+            save(mvpPresenterTemp(defPackgeName, packageName2, activityClass, desc), srcOut.resolve("${dirnam}${activityClass}Presenter.${ktOrJavaExt}"))
             //生成model
-            save(mvpModelTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("${activityClass}Model.${ktOrJavaExt}"))
+            save(mvpModelTemp(defPackgeName, packageName2, activityClass, desc), srcOut.resolve("${dirnam}${activityClass}Model.${ktOrJavaExt}"))
             //生成view
-            save(mvpViewTemp(projectData.applicationPackage, packageName, activityClass,layoutName, desc), srcOut.resolve("${activityClass}View.${ktOrJavaExt}"))
+            save(mvpViewTemp(defPackgeName, packageName2, activityClass, layoutName, desc), srcOut.resolve("${dirnam}${activityClass}View.${ktOrJavaExt}"))
             //生成layout
             save(mvpLayoutTemp(desc), resOut.resolve("layout/${layoutName}.xml"))
         } else {
-            //生成activity
-            save(simpleActivityTemp(projectData.applicationPackage, packageName, activityClass, desc), srcOut.resolve("${activityClass}Activity.${ktOrJavaExt}"))
+            //生成view
+            save(mvpViewTemp(projectData.applicationPackage, packageName2, activityClass, layoutName, desc), srcOut.resolve("${dirnam}${activityClass}View.${ktOrJavaExt}"))
             //生成layout
             save(simpleLayoutTemp(desc), resOut.resolve("layout/${layoutName}.xml"))
         }

@@ -10,7 +10,7 @@ import generator.util.defaultPackageNameParameter
  */
 val simpleActivityGenerator
     get() = template {
-        name = "Mvp Presentation 生成器"
+        name = "LT Mvp Presentation生成器"
         description = "生成MVP框架的Presentation和layout"
         minApi = MIN_API
         category = Category.Activity
@@ -19,7 +19,7 @@ val simpleActivityGenerator
         // View
         val activityClass = stringParameter {
             name = "View Name"
-            default = "SimpleView"
+            default = "Simple"
             help = "只输入名字，不要包含View"
             constraints = listOf(Constraint.NONEMPTY)
         }
@@ -46,6 +46,13 @@ val simpleActivityGenerator
             name = "Is MVP"
             help = "是否生成Model，View，Presenter"
             default = true
+        }
+
+
+        val isCreateDir = booleanParameter {
+            name = "生成文件夹"
+            help = "是否创建独立文件夹"
+            default = false
         }
 
 //        //model
@@ -87,7 +94,8 @@ val simpleActivityGenerator
                 TextFieldWidget(activityClass),
                 TextFieldWidget(desc),
                 TextFieldWidget(layoutName),
-                CheckBoxWidget(isMvp),
+//                CheckBoxWidget(isMvp),
+                CheckBoxWidget(isCreateDir),
 //                TextFieldWidget(modelName),
 //                TextFieldWidget(viewName),
 //                TextFieldWidget(presenterName),
@@ -103,10 +111,8 @@ val simpleActivityGenerator
                     layoutName.value,
                     desc.value,
                     isMvp.value,
-//                    modelName.value,
-//                    viewName.value,
-//                    presenterName.value,
                     language.value,
+                    isCreateDir.value
             )
         }
     }

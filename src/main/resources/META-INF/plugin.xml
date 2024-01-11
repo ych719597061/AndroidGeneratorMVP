@@ -7,11 +7,7 @@
     <description><![CDATA[
     <h2>Android代码生成插件，支持生成简单的Activity，Fragment代码，MVP模式的Activity，Fragment代码，带刷新的Activity,Fragment。提高效率，摆脱重复劳动。</h2>
     <ul>
-        <li>Activity: Folder-> New -> Activity -> Mvp Activity</li>
-        <li>Activity: Folder-> New -> Activity -> Refresh Activity</li>
-        <li>Fragment: Folder-> New -> Fragment -> Mvp Fragment</li>
-        <li>Fragment: Folder-> New -> Fragment -> Refresh Fragment</li>
-        <li>GitHub：<a href="https://github.com/summersrest/AndroidGenerator</a></li>
+        <li>Activity: Folder-> New -> Activity -> LT Mvp Presentation生成器</li>
     </ul>
     ]]></description>
 

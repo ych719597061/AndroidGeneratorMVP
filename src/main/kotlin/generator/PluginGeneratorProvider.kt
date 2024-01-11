@@ -16,11 +16,11 @@ class PluginGeneratorProvider : WizardTemplateProvider() {
     override fun getTemplates(): List<Template> = listOf(
         //Simple Activity
         simpleActivityGenerator,
-        //Simple Fragment
-        simpleFragmentGenerator,
-        //Refresh Activity
-        refreshActivityGenerator,
-        //Refresh Fragment
-        refreshFragmentGenerator,
+//        //Simple Fragment
+//        simpleFragmentGenerator,
+//        //Refresh Activity
+//        refreshActivityGenerator,
+//        //Refresh Fragment
+//        refreshFragmentGenerator,
     )
 }
