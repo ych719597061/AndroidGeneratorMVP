@@ -52,7 +52,7 @@ val simpleActivityGenerator
         val isCreateDir = booleanParameter {
             name = "生成文件夹"
             help = "是否创建独立文件夹"
-            default = false
+            default = true
         }
 
 //        //model
